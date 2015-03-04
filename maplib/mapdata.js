@@ -3,8 +3,11 @@ var MongoClient = require('mongodb').MongoClient;
 
 var mongodb_connection_string = 'mongodb://127.0.0.1:27017/';
 //take advantage of openshift env vars when available:
-if (process.env.OPENSHIFT_MONGODB_DB_URL) {
-    mongodb_connection_string = process.env.OPENSHIFT_MONGODB_DB_URL;
+if (process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
+    mongodb_connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+  process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+  process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+  process.env.OPENSHIFT_MONGODB_DB_PORT + '/';
 }
 
 module.exports = { retrieveCollections: function (response, username) {
