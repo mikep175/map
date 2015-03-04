@@ -10,7 +10,7 @@
     "bcrypt-nodejs": "*",
     "jwt-simple": "*"
   },
-"scripts": {
+"scripts": { 
   "start": "node ./maplib/main.js"
 },
 "main": "maplib/main.js"
