@@ -12,7 +12,7 @@ if (process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 
 mongodb_connection_string += 'admin';
 
-module.exports = { retrieveCollections: function (response, username) {
+module.exports = { retrieveCollections: function (response, userName) {
 
     // Connect to the db application/json
     MongoClient.connect(mongodb_connection_string, function (err, db) {
@@ -23,7 +23,7 @@ module.exports = { retrieveCollections: function (response, username) {
             return console.dir(err);
         }
 
-        db = db.db(username);
+        db = db.db(userName);
 
         response.writeHead(200, { 'Content-Type': 'application/json' });
 
@@ -52,7 +52,7 @@ module.exports = { retrieveCollections: function (response, username) {
 
 },
 
-    createCollection: function (collName, response, username) {
+createCollection: function (collName, response, userName) {
 
         // Connect to the db application/json
         MongoClient.connect(mongodb_connection_string, function (err, db) {
@@ -63,7 +63,7 @@ module.exports = { retrieveCollections: function (response, username) {
                 return console.dir(err);
             }
 
-            db = db.db(username);
+            db = db.db(userName);
 
             var collection = db.createCollection(collName, function (err, collection) {
 
@@ -97,7 +97,7 @@ module.exports = { retrieveCollections: function (response, username) {
                 return console.dir(err);
             }
 
-            db = db.db(username);
+            db = db.db(userName);
 
             var collection = db.collection(collName);
 
@@ -144,7 +144,7 @@ module.exports = { retrieveCollections: function (response, username) {
                 return console.dir(err);
             }
 
-            db = db.db(username);
+            db = db.db(userName);
 
             var collection = db.collection(collName);
 
@@ -192,7 +192,7 @@ module.exports = { retrieveCollections: function (response, username) {
                 return console.dir(err);
             }
 
-            db = db.db(username);
+            db = db.db(userName);
 
             var collection = db.collection(coll);
 
