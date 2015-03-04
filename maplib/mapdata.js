@@ -10,16 +10,20 @@ if (process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
   process.env.OPENSHIFT_MONGODB_DB_PORT + '/';
 }
 
+mongodb_connection_string += 'admin';
+
 module.exports = { retrieveCollections: function (response, username) {
 
     // Connect to the db application/json
-    MongoClient.connect(mongodb_connection_string + username, function (err, db) {
+    MongoClient.connect(mongodb_connection_string, function (err, db) {
         if (err) {
             response.writeHead(500, { "Content-Type": 'text/plain' });
             response.write("500 Internal Server Error\n");
             response.end();
             return console.dir(err);
         }
+
+        db = db.db(username);
 
         response.writeHead(200, { 'Content-Type': 'application/json' });
 
@@ -51,7 +55,7 @@ module.exports = { retrieveCollections: function (response, username) {
     createCollection: function (collName, response, username) {
 
         // Connect to the db application/json
-        MongoClient.connect(mongodb_connection_string + username, function (err, db) {
+        MongoClient.connect(mongodb_connection_string, function (err, db) {
             if (err) {
                 response.writeHead(500, { "Content-Type": 'text/plain' });
                 response.write("500 Internal Server Error\n");
@@ -59,7 +63,7 @@ module.exports = { retrieveCollections: function (response, username) {
                 return console.dir(err);
             }
 
-
+            db = db.db(username);
 
             var collection = db.createCollection(collName, function (err, collection) {
 
@@ -85,7 +89,7 @@ module.exports = { retrieveCollections: function (response, username) {
     queryCollection: function (collName, payload, response, userName) {
 
         // Connect to the db application/json
-        MongoClient.connect(mongodb_connection_string + userName, function (err, db) {
+        MongoClient.connect(mongodb_connection_string, function (err, db) {
             if (err) {
                 response.writeHead(500, { "Content-Type": 'text/plain' });
                 response.write("500 Internal Server Error\n");
@@ -93,7 +97,7 @@ module.exports = { retrieveCollections: function (response, username) {
                 return console.dir(err);
             }
 
-
+            db = db.db(username);
 
             var collection = db.collection(collName);
 
@@ -132,7 +136,7 @@ module.exports = { retrieveCollections: function (response, username) {
     retrieveCollection: function (collName, response, userName) {
 
         // Connect to the db application/json
-        MongoClient.connect(mongodb_connection_string + userName, function (err, db) {
+        MongoClient.connect(mongodb_connection_string, function (err, db) {
             if (err) {
                 response.writeHead(500, { "Content-Type": 'text/plain' });
                 response.write("500 Internal Server Error\n");
@@ -140,7 +144,7 @@ module.exports = { retrieveCollections: function (response, username) {
                 return console.dir(err);
             }
 
-
+            db = db.db(username);
 
             var collection = db.collection(collName);
 
@@ -178,7 +182,7 @@ module.exports = { retrieveCollections: function (response, username) {
 
     createDocument: function (coll, payload, response, userName) {
 
-        var connString = mongodb_connection_string + userName;
+        var connString = mongodb_connection_string;
 
         MongoClient.connect(connString, function (err, db) {
             if (err) {
@@ -187,6 +191,8 @@ module.exports = { retrieveCollections: function (response, username) {
                 response.end();
                 return console.dir(err);
             }
+
+            db = db.db(username);
 
             var collection = db.collection(coll);
 
