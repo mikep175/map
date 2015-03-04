@@ -59,8 +59,7 @@ module.exports = { isAuthenticated: function (rawToken, clientIP) {
 
         }
 
-        var connString = mongodb_connection_string + 'mapmaster';
-        console.dir(connString);
+        var connString = mongodb_connection_string + 'admin';
         MongoClient.connect(connString, function (err, db) {
             if (err) {
                 response.writeHead(500, { "Content-Type": 'text/plain' });
@@ -72,7 +71,7 @@ module.exports = { isAuthenticated: function (rawToken, clientIP) {
                 response.end();
                 return console.dir(err);
             }
-
+            db = db.db("mapmaster");
             var collection = db.collection('users');
 
             bcrypt.hash(p, bcrypt.genSaltSync(10), function () { }, function (err, hash) {
@@ -105,7 +104,7 @@ module.exports = { isAuthenticated: function (rawToken, clientIP) {
         var u = new Buffer(username, 'base64').toString('ascii');
         var p = new Buffer(password, 'base64').toString('ascii');
         // Connect to the db application/json
-        MongoClient.connect(mongodb_connection_string + 'mapmaster', function (err, db) {
+        MongoClient.connect(mongodb_connection_string + 'admin', function (err, db) {
             if (err) {
                 response.writeHead(500, { "Content-Type": 'text/plain' });
                 if (mapkeys.verboseErrors == true) {
@@ -117,7 +116,7 @@ module.exports = { isAuthenticated: function (rawToken, clientIP) {
                 return console.dir(err);
             }
 
-
+            db = db.db("mapmaster");
 
             var collection = db.collection('users');
 
