@@ -1,0 +1,20 @@
+/*!
+ * Craper v.1.0.0
+ * Copyright 2014 kl-webmedia.com
+ * 
+ */
+ 
+
+.scheme-red a:hover, .scheme-red .ie-lt-10 .menu li li:hover a, .scheme-red .btn, .scheme-red .theme-color, .scheme-red .iconic-theme-o, .scheme-red ul.bullet-1 li:before, .scheme-red ol.bullet-3 li:before, .scheme-red ul.bullet-3 li:before, .scheme-red footer a:hover, .scheme-red footer ul.bullet-1 li:hover:before, .scheme-red ul.bullet-2 li:hover:before, .scheme-red .thumbnail .caption .caption-bottom .options li:hover, .scheme-red ul.disc-theme li:before, .scheme-red .author-box .author-detail h5, .scheme-red .meta, .scheme-red .meta a, .scheme-red .blog-box hgroup .options a, .scheme-red .widget_tag_cloud a, .scheme-red .accordion dt:before, .scheme-red .bg-theme .btn-transparent:hover, .scheme-red .bg-theme .tweets-style-2:before {
+	color:#f64023;
+}
+.scheme-red .bg-primary, .scheme-red a.bg-primary:hover,
+.btn-primary, .scheme-red .btn-transparent:hover, .scheme-red .btn.btn-reply:hover, .scheme-red .menu > li > a:after, .scheme-red .menu > li.current-menu-item > a:after, .scheme-red .portfolio-box figure figcaption, .scheme-red .image-hover figcaption, .scheme-red .image-hovered figcaption, .scheme-red .bg-theme, .scheme-red .social-links a:hover, .scheme-red .widget_tag_cloud a:hover, .scheme-red .widget-gallery ul li a:before, .scheme-red .zoom > a:before, .scheme-red .zoom > a:after, .scheme-red .iconic-theme-fill, .scheme-red .feature-box .feature-down, .scheme-red .portfolio-box, .scheme-red .pricing-table .table-heading, .scheme-red .btn.btn-theme, .scheme-red .image-caption figcaption, .scheme-red .banner, .scheme-red q:before, .scheme-red blockquote:before, .scheme-red .progress .bar, .scheme-red .pagination ul > li > a:hover, .scheme-red .pagination ul > .active > a, .scheme-red .pagination ul > .active > span, .scheme-red .menu li li a:after {
+	background-color:#f64023;
+}
+.scheme-red .btn-transparent:hover, .scheme-red .btn.btn-reply:hover, .scheme-red .menu li ul, .scheme-red .iconic-theme-o, .scheme-red ul.bullet-1 li:before, .scheme-red ol.bullet-3 li:before, .scheme-red ul.bullet-3 li:before, .scheme-red .widget_tag_cloud a:hover, .scheme-red .feature-box:hover, .scheme-red .widget_tag_cloud a {
+	border-color:#f64023;
+}
+.scheme-red .tp-bullets .bullet.selected, .scheme-red .main-slider .tp-rightarrow:hover, .scheme-red .main-slider .tp-leftarrow:hover {
+	background-color:#f64023 !important;
+}

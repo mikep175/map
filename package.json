@@ -1,0 +1,17 @@
+{
+  "name": "MAP",
+  "description": "MyApps Platform",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "mongodb": "*",
+    "jquery": "*",
+    "cookies": "*",
+    "bcrypt-nodejs": "*",
+    "jwt-simple": "*"
+  },
+"scripts": {
+  "start": "node ./maplib/main.js"
+},
+"main": "maplib/main.js"
+}

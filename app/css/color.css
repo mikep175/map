@@ -1,0 +1,20 @@
+/*!
+ * Craper v.1.0.0
+ * Copyright 2014 kl-webmedia.com
+ * 
+ */
+ 
+
+a:hover, .ie-lt-10 .menu li li:hover a, .btn, .theme-color, .iconic-theme-o, ul.bullet-1 li:before, ol.bullet-3 li:before, ul.bullet-3 li:before, footer a:hover, footer ul.bullet-1 li:hover:before, ul.bullet-2 li:hover:before, .thumbnail .caption .caption-bottom .options li:hover, ul.disc-theme li:before, .author-box .author-detail h5, .meta, .meta a, .blog-box hgroup .options a, .widget_tag_cloud a, .accordion dt:before, .bg-theme .btn-transparent:hover, .bg-theme .tweets-style-2:before {
+	color:#22c0e8;
+}
+.bg-primary, a.bg-primary:hover,
+.btn-primary, .btn-transparent:hover, .btn.btn-reply:hover, .menu > li > a:after, .menu > li.current-menu-item > a:after, .portfolio-box figure figcaption, .image-hover figcaption, .image-hovered figcaption, .bg-theme, .social-links a:hover, .widget_tag_cloud a:hover, .widget-gallery ul li a:before, .zoom > a:before, .zoom > a:after, .iconic-theme-fill, .feature-box .feature-down, .portfolio-box, .pricing-table .table-heading, .btn.btn-theme, .image-caption figcaption, .banner, q:before, blockquote:before, .progress .bar, .pagination ul > li > a:hover, .pagination ul > .active > a, .pagination ul > .active > span, .menu li li a:after {
+	background-color:#22c0e8;
+}
+.btn-transparent:hover, .btn.btn-reply:hover, .menu li ul, .iconic-theme-o, ul.bullet-1 li:before, ol.bullet-3 li:before, ul.bullet-3 li:before, .widget_tag_cloud a:hover, .feature-box:hover, .widget_tag_cloud a {
+	border-color:#22c0e8;
+}
+.tp-bullets .bullet.selected, .main-slider .tp-rightarrow:hover, .main-slider .tp-leftarrow:hover {
+	background-color:#22c0e8 !important;
+}
