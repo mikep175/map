@@ -1,4 +1,5 @@
-var MongoClient = require('mongodb').MongoClient;
+var mongodb = require('mongodb');
+var MongoClient = mongodb.MongoClient;
 
 
 var mongodb_connection_string = 'mongodb://127.0.0.1:27017/';
@@ -52,7 +53,7 @@ module.exports = { retrieveCollections: function (response, userName) {
 
 },
 
-createCollection: function (collName, response, userName) {
+    createCollection: function (collName, response, userName) {
 
         // Connect to the db application/json
         MongoClient.connect(mongodb_connection_string, function (err, db) {
@@ -208,12 +209,55 @@ createCollection: function (collName, response, userName) {
                 }
 
                 response.writeHead(200, { 'Content-Type': 'application/json' });
-                response.write(JSON.stringify(payload));
+                response.write(JSON.stringify(result));
                 db.close();
                 response.end();
 
             });
 
+        });
+
+    },
+
+    saveDocument: function (coll, payload, response, userName) {
+
+        var connString = mongodb_connection_string;
+
+        MongoClient.connect(connString, function (err, db) {
+            if (err) {
+                response.writeHead(500, { "Content-Type": 'text/plain' });
+                response.write("500 Internal Server Error\n");
+                response.end();
+                return console.dir(err);
+            }
+
+            db = db.db(userName);
+
+            var collection = db.collection(coll);
+
+            ObjectID = mongodb.ObjectID;
+
+            if (payload._id) {
+
+                payload._id = ObjectID(payload._id);
+
+            }
+
+            collection.save(payload, { w: 1 }, function (err, result) {
+
+                if (err) {
+                    response.writeHead(500, { "Content-Type": 'text/plain' });
+                    response.write("500 Internal Server Error\n");
+                    response.end();
+                    return console.dir(err);
+                }
+
+                response.writeHead(200, { 'Content-Type': 'application/json' });
+                response.write(JSON.stringify(result));
+                db.close();
+                response.end();
+
+            });
         });
 
     }

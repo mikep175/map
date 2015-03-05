@@ -1,4 +1,55 @@
+var fieldTypes = [{ text: "Textbox", value: "k-textbox" }, { text: "Date Picker", value: "k-datepicker" }, { text: "List of items", value: "static-list" }, { text: "Lookup list", value: "lookup-list"}];
+var newField = null;
+
+
 $(document).ready(function () {
+
+    var fieldTypeDDL = $("#add-field-type").kendoDropDownList({ dataTextField: "text",
+        dataValueField: "value",
+        dataSource: { data: fieldTypes }
+    }).data('kendoDropDownList');
+
+    var addFieldWin = $("#add-field-win").kendoWindow({ title: "Add New Field to List", width: "400px", height: "150px", modal: true }).data('kendoWindow');
+
+    $(document).on("click", ".add-new-field", function () {
+
+        fieldTypeDDL.value('k-textbox');
+        $("#add-field-label").val('');
+
+        addFieldWin.center();
+        addFieldWin.open();
+
+        return false;
+
+    });
+
+    $("#add-field-btn").click(function () {
+
+        newField = { property: encodeURIComponent($("#add-field-label").val()), title: $("#add-field-label").val(), dataType: 'text', controlType: fieldTypeDDL.value() };
+
+        currentMetaItem.fields.push(newField);
+        addFieldWin.close();
+
+        $.ajax({
+            type: "PUT",
+            url: '/mapdata/collections/mapmeta',
+            data: JSON.stringify(currentMetaItem),
+            success: function () { updateVisibleItems(); },
+            error: function (jqXHR, exception) {
+                if (jqXHR.status == 401) {
+                    window.location = '/login.html';
+                }
+            },
+            headers: {
+                MapAuth: getCookie('MapTicket')
+            },
+            dataType: 'json'
+        });
+
+        return false;
+
+
+    });
 
     getLists();
 
@@ -78,47 +129,114 @@ $(document).ready(function () {
 
     });
 
+    $(document).on('click', ".update-item", function () {
+
+        var mapId = $(this).attr('mapid');
+
+        var observ = $(".item-details[mapid='" + mapId + "']").get(0)['mapobservable'];
+
+        currentMetaItem.fields.push(newField);
+        addFieldWin.close();
+
+        $.ajax({
+            type: "PUT",
+            url: '/mapdata/collections/' + currentCollection,
+            data: JSON.stringify(observ.toJSON()),
+            success: function () { },
+            error: function (jqXHR, exception) {
+                if (jqXHR.status == 401) {
+                    window.location = '/login.html';
+                }
+            },
+            headers: {
+                MapAuth: getCookie('MapTicket')
+            },
+            dataType: 'json'
+        });
+
+        return false;
+
+
+    });
+
     $(document).on('click', ".btn-item", function () {
 
         var mapId = $(this).attr('mapid');
 
         var container = $(".item-details[mapid='" + mapId + "']");
 
-        var details = $("<ul></ul>");
+        if (container.children().length == 0) {
 
+            var details = $("<ul></ul>");
 
-        for (var i = 0; i < currentMetaItem.fields.length; i++) {
+            container.append(details);
 
-            var metaField = currentMetaItem.fields[i];
-            var field = $("<li></li>");
-            field.append("<span class='field-label' >" + metaField.title + "</span>");
+            var viewModel = kendo.observable(container.get(0)['mapitem']);
 
-            switch (metaField.controlType) {
+            for (var i = 0; i < currentMetaItem.fields.length; i++) {
 
-                case "k-textbox":
-                    field.append("<input type='text' data-bind='value: " + metaField.title + "' class='k-textbox' />");
-                    break;
-
-
+                createControl(currentMetaItem.fields[i], details, viewModel);
             }
-            details.append(field);
+
+            container.append("<a href='#' class='btn btn-small update-item' mapid='" + mapId + "'>Save Item</a><a href='#' class='add-new-field' >Add New Field</a>");
+
+            container.get(0)['mapobservable'] = viewModel;
+
+            kendo.bind(details, viewModel);
         }
 
-        container.append(details);
-
-        var viewModel = kendo.observable(container.get(0)['mapitem']);
-
-        container.get(0)['mapitem'] = viewModel;
-
-        kendo.bind(details, viewModel);
-
-        container.show();
+        container.toggle();
 
         return false;
 
     });
 
 });
+
+function createControl(metaField, parent, viewModel) {
+
+    var field = $("<li></li>");
+
+    parent.append(field);
+
+    field.append("<span class='field-label' >" + metaField.title + "</span>");
+
+    switch (metaField.controlType) {
+
+        case "k-textbox":
+            field.append("<input type='text' data-bind='value: " + metaField.property + "' class='k-textbox' />");
+            break;
+        case "k-datepicker":
+            field.append("<input data-role='datepicker' data-bind='value: " + metaField.property + "' />");
+            if (viewModel[metaField.property] != null) {
+                viewModel.set(metaField.property, new Date(viewModel[metaField.property]));
+            }
+            break;
+
+    }
+
+    return field;
+
+}
+
+function updateVisibleItems() {
+
+    $(".item-details").each(function () {
+
+        kendo.unbind($(this));
+
+        var viewModel = $(this).get(0)['mapobservable'];
+
+        viewModel.set(newField.property, null);
+
+        createControl(newField, $(this).find('ul'), viewModel);
+
+        kendo.bind($(this), viewModel);
+
+
+    });
+
+}
 
 var currentMetaItem = null;
 
@@ -127,7 +245,7 @@ function createListMetaItem(listName) {
     $.ajax({
         type: "POST",
         url: '/mapdata/collections/mapmeta',
-        data: JSON.stringify({ name: listName, fields: [{ title: 'title', dataType: 'text', controlType: 'k-textbox'}] }),
+        data: JSON.stringify({ name: listName, fields: [{ property: 'title', title: 'title', dataType: 'text', controlType: 'k-textbox'}] }),
         success: function () { getLists(); },
         error: function (jqXHR, exception) {
             if (jqXHR.status == 401) {

@@ -22,11 +22,12 @@
 {
      list-style-type: none;
 }
-.item-details > .field-label 
+.item-details .field-label 
 {
-     width: 150px;
+     width: 250px;
+     display: inline-block;
 }
-.item-details > input.k-textbox
+.item-details input.k-textbox
 {
 height: 36px;
 }
@@ -235,7 +236,20 @@ height: 36px;
     </footer>
 </div>
 <!-- /pageWrapper --> 
-
+<div style="display:none" >
+    <div id="add-field-win" >
+    
+        <div>
+        <label>Field Label</label>
+        <input id="add-field-label" type="text" />
+        </div>
+        <div>
+        <label>Field Type</label>
+        <input id="add-field-type" type="text" />
+        </div>
+        <a href="#" class="btn btn-primary btn-small btn-icon-hold" id="add-field-btn" > <i class="icon-page-arrow-right "></i><span class="btn-text">Create Field</span></a>
+    </div>
+</div>
 <script id="listTemplate" type="text/x-kendo-template">
         <a href="\\#" class="btn btn-primary btn-large btn-icon-hold btn-list"> <span class="btn-text">#= decodeURIComponent(name) #</span><i class="icon-page-arrow-right "></i> </a>
 </script>

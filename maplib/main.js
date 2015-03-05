@@ -101,6 +101,18 @@ var server = http.createServer(function (request, response) {
 
                             mapdata.retrieveCollection(subpart, response, userName);
 
+                        } else if (request.method == 'PUT') {
+
+                            var fullBody = '';
+
+                            request.on('data', function (chunk) {
+                                fullBody += chunk.toString();
+                            });
+
+                            request.on('end', function () {
+                                var payload = JSON.parse(fullBody);
+                                mapdata.saveDocument(subpart, payload, response, userName);
+                            });
                         }
 
 
