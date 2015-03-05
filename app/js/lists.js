@@ -135,9 +135,6 @@ $(document).ready(function () {
 
         var observ = $(".item-details[mapid='" + mapId + "']").get(0)['mapobservable'];
 
-        currentMetaItem.fields.push(newField);
-        addFieldWin.close();
-
         $.ajax({
             type: "PUT",
             url: '/mapdata/collections/' + currentCollection,
