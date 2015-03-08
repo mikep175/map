@@ -4,9 +4,9 @@ module.exports = {
 
     handleMapMetaRequest: function (request, response, urlParts, userName) {
 
-        if (urlParts.pathname.indexOf('/mapdata/find/') == 0) {
+        if (urlParts.pathname.indexOf('/mapmeta/find/') == 0) {
 
-            var subpart = urlParts.pathname.replace('/mapdata/find/', '');
+            var subpart = urlParts.pathname.replace('/mapmeta/find/', '');
 
             if (request.method == 'POST') {
 
@@ -18,12 +18,12 @@ module.exports = {
 
                 request.on('end', function () {
                     var payload = JSON.parse(fullBody);
-                    mapdata.queryCollection(subpart, payload, response, userName);
+                    mapdata.queryCollection(subpart, payload, response, userName + '_mapmeta');
                 });
 
             } else if (request.method == 'GET') {
 
-                mapdata.retrieveCollection(subpart, response, userName);
+                mapdata.retrieveCollection(subpart, response, userName + '_mapmeta');
 
             } else {
                 response.writeHead(404, { "Content-Type": 'text/plain' });
@@ -34,9 +34,9 @@ module.exports = {
             }
 
 
-        } else if (urlParts.pathname.indexOf('/mapdata/collections/') == 0) {
+        } else if (urlParts.pathname.indexOf('/mapmeta/collections/') == 0) {
 
-            var subpart = urlParts.pathname.replace('/mapdata/collections/', '');
+            var subpart = urlParts.pathname.replace('/mapmeta/collections/', '');
 
             if (request.method == 'POST') {
 
@@ -48,12 +48,12 @@ module.exports = {
 
                 request.on('end', function () {
                     var payload = JSON.parse(fullBody);
-                    mapdata.createDocument(subpart, payload, response, userName);
+                    mapdata.createDocument(subpart, payload, response, userName + '_mapmeta');
                 });
 
             } else if (request.method == 'GET') {
 
-                mapdata.retrieveCollection(subpart, response, userName);
+                mapdata.retrieveCollection(subpart, response, userName + '_mapmeta');
 
             } else if (request.method == 'PUT') {
 
@@ -65,7 +65,7 @@ module.exports = {
 
                 request.on('end', function () {
                     var payload = JSON.parse(fullBody);
-                    mapdata.saveDocument(subpart, payload, response, userName);
+                    mapdata.saveDocument(subpart, payload, response, userName + '_mapmeta');
                 });
             } else {
                 response.writeHead(404, { "Content-Type": 'text/plain' });
@@ -76,7 +76,7 @@ module.exports = {
             }
 
 
-        } else if (urlParts.pathname.indexOf('/mapdata/collections') == 0) {
+        } else if (urlParts.pathname.indexOf('/mapmeta/collections') == 0) {
 
             if (request.method == 'POST') {
 
@@ -88,14 +88,14 @@ module.exports = {
 
                 request.on('end', function () {
                     var payload = JSON.parse(fullBody);
-                    mapdata.createCollection(payload.name, response, userName);
+                    mapdata.createCollection(payload.name, response, userName + '_mapmeta');
                 });
 
 
 
             } else if (request.method == 'GET') {
 
-                mapdata.retrieveCollections(response, userName);
+                mapdata.retrieveCollections(response, userName + '_mapmeta');
 
             } else {
                 response.writeHead(404, { "Content-Type": 'text/plain' });

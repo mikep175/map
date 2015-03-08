@@ -31,12 +31,12 @@ module.exports = {
 
                 request.on('end', function () {
                     var payload = JSON.parse(fullBody);
-                    mapdata.queryCollection(subpart, payload, response, userName);
+                    module.exports.queryCollection(subpart, payload, response, userName);
                 });
 
             } else if (request.method == 'GET') {
 
-                mapdata.retrieveCollection(subpart, response, userName);
+                module.exports.retrieveCollection(subpart, response, userName);
 
             } else {
                 response.writeHead(404, { "Content-Type": 'text/plain' });
@@ -61,12 +61,12 @@ module.exports = {
 
                 request.on('end', function () {
                     var payload = JSON.parse(fullBody);
-                    mapdata.createDocument(subpart, payload, response, userName);
+                    module.exports.createDocument(subpart, payload, response, userName);
                 });
 
             } else if (request.method == 'GET') {
 
-                mapdata.retrieveCollection(subpart, response, userName);
+                module.exports.retrieveCollection(subpart, response, userName);
 
             } else if (request.method == 'PUT') {
 
@@ -78,7 +78,7 @@ module.exports = {
 
                 request.on('end', function () {
                     var payload = JSON.parse(fullBody);
-                    mapdata.saveDocument(subpart, payload, response, userName);
+                    module.exports.saveDocument(subpart, payload, response, userName);
                 });
             } else {
                 response.writeHead(404, { "Content-Type": 'text/plain' });
@@ -101,14 +101,14 @@ module.exports = {
 
                 request.on('end', function () {
                     var payload = JSON.parse(fullBody);
-                    mapdata.createCollection(payload.name, response, userName);
+                    module.exports.createCollection(payload.name, response, userName);
                 });
 
 
 
             } else if (request.method == 'GET') {
 
-                mapdata.retrieveCollections(response, userName);
+                module.exports.retrieveCollections(response, userName);
 
             } else {
                 response.writeHead(404, { "Content-Type": 'text/plain' });
