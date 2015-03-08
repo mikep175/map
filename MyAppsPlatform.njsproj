@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{88506ced-415a-416a-9822-5b9c61e006ab}</ProjectGuid>
+    <ProjectHome />
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>maplib\main.js</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <Content Include="app\about-detail.html" />
+    <Content Include="app\about.html" />
+    <Content Include="app\app.html" />
+    <Content Include="app\blog-archive-sidebar.html" />
+    <Content Include="app\blog-archive.html" />
+    <Content Include="app\blog-center.html" />
+    <Content Include="app\blog-detail.html" />
+    <Content Include="app\blog.html" />
+    <Content Include="app\contact-us-2.html" />
+    <Content Include="app\contact-us.html" />
+    <Content Include="app\error.html" />
+    <Content Include="app\home2.html" />
+    <Content Include="app\home3.html" />
+    <Content Include="app\home4.html" />
+    <Content Include="app\home5.html" />
+    <Content Include="app\index.html" />
+    <Content Include="app\lists.html" />
+    <Content Include="app\login.html" />
+    <Content Include="app\portfolio-grid-sidebar.html" />
+    <Content Include="app\portfolio-grid-4.html" />
+    <Content Include="app\portfolio-grid-3.html" />
+    <Content Include="app\portfolio.html" />
+    <Content Include="app\portfolio-detail-comments.html" />
+    <Content Include="app\portfolio-detail-sidebar.html" />
+    <Content Include="app\portfolio-detail.html" />
+    <Content Include="app\portfolio-full.html" />
+    <Content Include="app\pricing-tables.html" />
+    <Content Include="app\register.html" />
+    <Content Include="app\services.html" />
+    <Content Include="app\shortcodes.html" />
+    <Compile Include="maplib\main.js" />
+    <Compile Include="maplib\mapapp.js" />
+    <Compile Include="maplib\mapdata.js" />
+    <Compile Include="maplib\mapkeys.js" />
+    <Compile Include="maplib\mapmeta.js" />
+    <Compile Include="maplib\mapstatic.js" />
+    <Content Include="app\css\animate.css" />
+    <Content Include="app\css\bootstrap.css" />
+    <Content Include="app\css\color-green.css" />
+    <Content Include="app\css\color-red.css" />
+    <Content Include="app\css\color.css" />
+    <Content Include="app\css\common.css" />
+    <Content Include="app\css\prettyPhoto.css" />
+    <Content Include="app\css\responsive.css" />
+    <Content Include="app\css\style.css" />
+    <Content Include="app\images\display.png" />
+    <Content Include="app\images\error.png" />
+    <Content Include="app\images\ipad-1.png" />
+    <Content Include="app\images\logo.png" />
+    <Content Include="app\images\mac-1.png" />
+    <Content Include="app\images\sprites.png" />
+    <Content Include="app\images\screenshot.jpg" />
+    <Content Include="app\images\globe16.svg" />
+    <Compile Include="app\js\appmain.js" />
+    <Compile Include="app\js\jquery-1.10.2.min.js" />
+    <Compile Include="app\js\jquery-ui-1.10.3.custom.min.js" />
+    <Compile Include="app\js\jquery.appear.js" />
+    <Compile Include="app\js\jquery.carouFredSel-6.2.1-packed.js" />
+    <Compile Include="app\js\jquery.knob.js" />
+    <Compile Include="app\js\jquery.mixitup.min.js" />
+    <Compile Include="app\js\jquery.prettyPhoto.js" />
+    <Compile Include="app\js\jquery.roundabout-shapes.min.js" />
+    <Compile Include="app\js\jquery.roundabout.min.js" />
+    <Compile Include="app\js\jquery.themepunch.revolution.min.js" />
+    <Compile Include="app\js\lists.js" />
+    <Compile Include="app\js\login.js" />
+    <Compile Include="app\js\masonry.pkgd.min.js" />
+    <Compile Include="app\js\register.js" />
+    <Compile Include="app\js\script.js" />
+    <Content Include="app\css\fonts\font-awesome.css" />
+    <Content Include="app\css\fonts\ico-font.css" />
+    <Content Include="app\css\fonts\typicons.css" />
+    <Content Include="app\css\revolution-slider\settings.css" />
+    <Content Include="app\css\revolution-slider\timer.png" />
+    <Content Include="app\css\fonts\fonts\typicons.min.css" />
+    <Content Include="app\css\fonts\fonts\fontawesome-webfont.svg" />
+    <Content Include="app\css\fonts\fonts\ico-font.svg" />
+    <Content Include="app\css\fonts\fonts\typicons.svg" />
+    <Content Include="app\images\resource\client-logo-1.png" />
+    <Content Include="app\images\resource\client-logo-2.png" />
+    <Content Include="app\images\resource\client-logo-3.png" />
+    <Content Include="app\images\resource\client-logo-4.png" />
+    <Content Include="app\images\resource\client-logo-5.png" />
+    <Content Include="app\images\resource\client-logo-6.png" />
+    <Content Include="app\images\resource\client-logo-7.png" />
+    <Content Include="app\images\resource\client-logo-8.png" />
+    <Content Include="app\images\resource\img-2.png" />
+    <Content Include="app\images\resource\avatar-1.jpg" />
+    <Content Include="app\images\resource\avatar-2.jpg" />
+    <Content Include="app\images\resource\avatar-3.jpg" />
+    <Content Include="app\images\resource\avatar-4.jpg" />
+    <Content Include="app\images\resource\blog-1.jpg" />
+    <Content Include="app\images\resource\blog-2.jpg" />
+    <Content Include="app\images\resource\blog-3.jpg" />
+    <Content Include="app\images\resource\img-1.jpg" />
+    <Content Include="app\images\resource\img-3.jpg" />
+    <Content Include="app\images\resource\parallex-1.jpg" />
+    <Content Include="app\images\resource\parallex-2.jpg" />
+    <Content Include="app\images\resource\parallex-3.jpg" />
+    <Content Include="app\images\resource\placeholder-700-600.jpg" />
+    <Content Include="app\images\resource\portfolio-1.jpg" />
+    <Content Include="app\images\resource\showcase-1.jpg" />
+    <Content Include="app\images\resource\showcase-10.jpg" />
+    <Content Include="app\images\resource\showcase-11.jpg" />
+    <Content Include="app\images\resource\showcase-12.jpg" />
+    <Content Include="app\images\resource\showcase-13.jpg" />
+    <Content Include="app\images\resource\showcase-14.jpg" />
+    <Content Include="app\images\resource\showcase-15.jpg" />
+    <Content Include="app\images\resource\showcase-16.jpg" />
+    <Content Include="app\images\resource\showcase-17.jpg" />
+    <Content Include="app\images\resource\showcase-18.jpg" />
+    <Content Include="app\images\resource\showcase-19.jpg" />
+    <Content Include="app\images\resource\showcase-2.jpg" />
+    <Content Include="app\images\resource\showcase-20.jpg" />
+    <Content Include="app\images\resource\showcase-3.jpg" />
+    <Content Include="app\images\resource\showcase-4.jpg" />
+    <Content Include="app\images\resource\showcase-5.jpg" />
+    <Content Include="app\images\resource\showcase-6.jpg" />
+    <Content Include="app\images\resource\showcase-7.jpg" />
+    <Content Include="app\images\resource\showcase-8.jpg" />
+    <Content Include="app\images\resource\showcase-9.jpg" />
+    <Content Include="app\images\resource\slide-1.jpg" />
+    <Content Include="app\images\resource\slide-2.jpg" />
+    <Content Include="app\images\resource\slide-3.jpg" />
+    <Content Include="app\images\resource\slide-4.jpg" />
+    <Content Include="app\images\resource\slide-5.jpg" />
+    <Content Include="app\images\resource\team-1.jpg" />
+    <Content Include="app\images\resource\team-2.jpg" />
+    <Content Include="app\images\resource\team-3.jpg" />
+    <Content Include="app\images\resource\team-4.jpg" />
+    <Content Include="app\images\resource\team-5.jpg" />
+    <Content Include="app\images\resource\team-6.jpg" />
+    <Content Include="app\images\resource\team-7.jpg" />
+    <Content Include="app\images\resource\team-8.jpg" />
+    <Content Include="app\images\resource\thumb-1.jpg" />
+    <Content Include="app\images\resource\thumb-2.jpg" />
+    <Content Include="app\images\resource\thumb-3.jpg" />
+    <Content Include="app\images\resource\thumb-4.jpg" />
+    <Content Include="app\images\resource\thumb-5.jpg" />
+    <Content Include="app\images\resource\thumb-6.jpg" />
+    <Content Include="app\images\resource\thumb-7.jpg" />
+    <Content Include="app\images\resource\thumb-8.jpg" />
+    <Content Include="app\images\resource\thumbnail-1.jpg" />
+    <Content Include="app\images\resource\thumbnail-2.jpg" />
+    <Content Include="app\images\resource\thumbnail-3.jpg" />
+    <Content Include="app\images\resource\thumbnail-4.jpg" />
+    <Content Include="app\images\resource\thumbnail-5.jpg" />
+    <Content Include="app\images\resource\thumbnail-6.jpg" />
+    <Content Include="app\images\resource\thumbnail-7.jpg" />
+    <Content Include="app\images\resource\thumbnail-8.jpg" />
+    <Content Include="app\images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="app\images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="app\images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="app\images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="app\images\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="app\images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="app\images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="app\images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="app\images\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="app\images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="app\images\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="app\images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="app\images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="app\images\prettyPhoto\default\sprite.png" />
+    <Content Include="app\images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="app\images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="app\images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="app\images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="app\images\prettyPhoto\default\loader.gif" />
+    <Content Include="app\images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="app\images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="app\images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="app\images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="app\images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="app\images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="app\images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="app\images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="app\images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="app\images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="app\images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="app\images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="app\images\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="app\images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="app\images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="app\images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="app\images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="app\images\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="app\images\prettyPhoto\light_square\loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app" />
+    <Folder Include="app\css" />
+    <Folder Include="app\css\fonts" />
+    <Folder Include="app\css\fonts\fonts" />
+    <Folder Include="app\css\revolution-slider" />
+    <Folder Include="app\images" />
+    <Folder Include="app\images\prettyPhoto" />
+    <Folder Include="app\images\prettyPhoto\dark_rounded" />
+    <Folder Include="app\images\prettyPhoto\dark_square" />
+    <Folder Include="app\images\prettyPhoto\default" />
+    <Folder Include="app\images\prettyPhoto\facebook" />
+    <Folder Include="app\images\prettyPhoto\light_rounded" />
+    <Folder Include="app\images\prettyPhoto\light_square" />
+    <Folder Include="app\images\resource" />
+    <Folder Include="app\js" />
+    <Folder Include="maplib" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

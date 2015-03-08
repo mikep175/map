@@ -42,7 +42,7 @@ $(document).ready(function () {
 
                     $.ajax({
                         type: "POST",
-                        url: '/mapdata/find/mapmeta',
+                        url: '/mapdata/find/mapwidgets',
                         data: JSON.stringify({ name: collectionDDL.value() }),
                         success: function (data) { options.success(data[0].fields); },
                         error: function (jqXHR, exception) {
@@ -100,7 +100,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "PUT",
-            url: '/mapdata/collections/mapmeta',
+            url: '/mapdata/collections/mapwidgets',
             data: JSON.stringify(currentMetaItem),
             success: function () { updateVisibleItems(); },
             error: function (jqXHR, exception) {
@@ -358,7 +358,7 @@ function createListMetaItem(listName) {
 
     $.ajax({
         type: "POST",
-        url: '/mapdata/collections/mapmeta',
+        url: '/mapdata/collections/mapwidgets',
         data: JSON.stringify({ name: listName, fields: [{ property: 'title', title: 'title', dataType: 'text', controlType: 'k-textbox'}] }),
         success: function () { getLists(); },
         error: function (jqXHR, exception) {
@@ -411,7 +411,7 @@ function createLists(data) {
 
     for (var i = 0; i < data.length; i++) {
 
-        if(data[i].name != 'mapmeta') {
+        if(data[i].name != 'mapwidgets') {
 
             var result = template(data[i]);
             lists.append(result);
@@ -439,7 +439,7 @@ function getMetaItem(listName) {
 
     $.ajax({
         type: "POST",
-        url: '/mapdata/find/mapmeta',
+        url: '/mapdata/find/mapwidgets',
         data: JSON.stringify({ name: listName }),
         success: function (data) { currentMetaItem = data[0]; },
         error: function (jqXHR, exception) {
